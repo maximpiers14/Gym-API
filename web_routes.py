@@ -3,14 +3,16 @@ import database
 from auth import login_required
 from werkzeug.security import check_password_hash
 
-
 web = Blueprint("web", __name__)
-
 
 @web.route("/")
 @login_required
 def home():
     return render_template("index.html"), 200
+
+# ----------------
+# LOGIN ROUTE
+# ----------------
 
 @web.route("/login", methods=["GET", "POST"])
 def login():
